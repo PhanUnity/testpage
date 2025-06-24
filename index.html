@@ -146,11 +146,23 @@
           <input type="text" class="form-control" name="entry.1234567890" id="name" required>
           <div class="invalid-feedback">Vui lòng nhập tên</div>
         </div>
-        <div class="col-md-6">
+        <div class="mb-3">
+  <label for="phone" class="form-label">Số điện thoại</label>
+  <input type="tel"
+         class="form-control"
+         id="phone"
+         name="phone"
+         required
+         pattern="^0[0-9]{9}$">
+  <div class="invalid-feedback">
+    Vui lòng nhập đúng 10 số, ví dụ: 0909999999
+  </div>
+</div>
+        <!-- <div class="col-md-6">
           <label for="phone" class="form-label">Số điện thoại</label>
           <input type="tel" class="form-control" name="entry.0987654321" id="phone" required pattern="[0-9]{10}">
           <div class="invalid-feedback">Số điện thoại không hợp lệ</div>
-        </div>
+        </div> -->
         <div class="col-12">
           <label for="note" class="form-label">Ghi chú thêm</label>
           <textarea name="entry.1111111111" class="form-control" rows="3"></textarea>
