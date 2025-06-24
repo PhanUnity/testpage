@@ -66,7 +66,7 @@
     <div class="container">
       <h1 class="display-4">Tiếng Anh cho bé tại Helen English</h1>
       <p class="lead">Chương trình học chuẩn quốc tế, môi trường 100% tiếng Anh</p>
-      <img src="https://ila.edu.vn/wp-content/uploads/2021/10/kids.webp" alt="Kids" class="img-fluid rounded">
+      <img src="img/linh-tran.jpg" alt="Kids" class="img-fluid rounded">
       <div class="mt-4">
         <a href="#chuong-trinh" class="btn btn-light btn-lg">Xem chương trình</a>
       </div>
@@ -81,7 +81,7 @@
         <aside class="col-md-4 mb-4">
           <h4><i class="bi bi-info-circle-fill text-primary me-2"></i>Thông tin thêm</h4>
           <ul class="list-group">
-            <li class="list-group-item">Thông số kỹ thuật</li>
+            <li class="list-group-item">Chương trình học</li>
             <li class="list-group-item">Chính sách học phí</li>
             <li class="list-group-item">Câu hỏi thường gặp</li>
           </ul>
@@ -93,7 +93,7 @@
           <div class="row g-4 mt-3">
             <div class="col-md-6">
               <div class="card h-100 shadow-sm">
-                <img src="https://ila.edu.vn/wp-content/uploads/2021/10/img-child1.jpg" class="card-img-top" alt="Jumpstart">
+                <img src="img/united-kingdom.png" class="card-img-top" alt="Jumpstart">
                 <div class="card-body">
                   <h5 class="card-title">Jumpstart (3–6 tuổi)</h5>
                   <p class="card-text">Học qua chơi, phát âm chuẩn, môi trường 100% tiếng Anh.</p>
@@ -102,7 +102,7 @@
             </div>
             <div class="col-md-6">
               <div class="card h-100 shadow-sm">
-                <img src="https://ila.edu.vn/wp-content/uploads/2021/10/img-child2.jpg" class="card-img-top" alt="Super Juniors">
+                <img src="img/united-kingdom.png" class="card-img-top" alt="Super Juniors">
                 <div class="card-body">
                   <h5 class="card-title">Super Juniors (6–11 tuổi)</h5>
                   <p class="card-text">Tăng cường kỹ năng tiếng Anh & kỹ năng mềm.</p>
@@ -111,7 +111,7 @@
             </div>
             <div class="col-md-12">
               <div class="card h-100 shadow-sm mt-4">
-                <img src="https://ila.edu.vn/wp-content/uploads/2021/10/img-child3.jpg" class="card-img-top" alt="Smart Teens">
+                <img src="img/united-kingdom.png" class="card-img-top" alt="Smart Teens">
                 <div class="card-body">
                   <h5 class="card-title">Smart Teens (11–16 tuổi)</h5>
                   <p class="card-text">Chuẩn bị thi Cambridge, IELTS, SAT...</p>
@@ -126,10 +126,14 @@
 
   <!-- CTA Section -->
   <section class="cta">
-    <div class="container">
+    <!-- <div class="container">
       <h3>Đăng ký ngay để nhận tư vấn miễn phí</h3>
       <a href="#form-dangky" class="btn btn-warning btn-lg mt-3">Tư vấn ngay</a>
-    </div>
+    </div> -->
+
+    <a class="btn btn-warning btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#formModal">
+    Tư vấn ngay
+    </a>
   </section>
 
   <!-- Form Đăng Ký -->
@@ -161,7 +165,7 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      © 2025 ILA Việt Nam. All rights reserved.
+      © SA Design. All rights reserved.
     </div>
   </footer>
 
@@ -182,5 +186,64 @@
       });
     })();
   </script>
+
+  <!-- Modal Form -->
+<div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form class="needs-validation" novalidate>
+        <div class="modal-header">
+          <h5 class="modal-title" id="formModalLabel">Đăng ký tư vấn</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="name" class="form-label">Họ và tên</label>
+            <input type="text" class="form-control" id="name" required>
+            <div class="invalid-feedback">Vui lòng nhập tên</div>
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Số điện thoại</label>
+            <input type="tel" class="form-control" id="phone" required pattern="[0-9]{10}">
+            <div class="invalid-feedback">Số điện thoại không hợp lệ</div>
+          </div>
+          <div class="mb-3">
+            <label for="note" class="form-label">Ghi chú thêm</label>
+            <textarea class="form-control" id="note" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success">Gửi đăng ký</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 </body>
+
+<script>
+  // Validate form trong modal
+  (() => {
+    const forms = document.querySelectorAll('.needs-validation');
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        } else {
+          event.preventDefault(); // chặn reload
+          alert("🎉 Đăng ký thành công!");
+          const modal = bootstrap.Modal.getInstance(document.getElementById('formModal'));
+          modal.hide(); // đóng modal
+          form.reset();
+          form.classList.remove('was-validated');
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  })();
+</script>
+
+
 </html>
